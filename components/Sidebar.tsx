@@ -4,7 +4,6 @@ import NewDocumentButton from "./NewDocumentButton";
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
@@ -15,12 +14,11 @@ function Sidebar() {
 	const menuOptions = (
 		<>
 			<NewDocumentButton />
-            {/* My Documents */}
-            {/* List... */}
+			{/* My Documents */}
+			{/* List... */}
 
-
-            {/* Shared with Me */}
-            {/* List... */}
+			{/* Shared with Me */}
+			{/* List... */}
 		</>
 	);
 	return (
