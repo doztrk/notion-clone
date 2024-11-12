@@ -2,7 +2,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyA3gCqUVU5Zde0UM0QvcHoVi896qlCNPck",
+	apiKey: process.env.FIREBASE_API_KEY,
 	authDomain: "notion-clone-205c2.firebaseapp.com",
 	projectId: "notion-clone-205c2",
 	storageBucket: "notion-clone-205c2.firebasestorage.app",
