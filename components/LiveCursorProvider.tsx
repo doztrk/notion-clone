@@ -1,6 +1,7 @@
 "use client";
 import { useMyPresence, useOthers } from "@liveblocks/react/suspense";
 import React from "react";
+import FollowPointer from "./FollowPointer";
 
 function LiveCursorProvider({ children }: { children: React.ReactNode }) {
 	const [myPresence, updateMyPresence] = useMyPresence();
@@ -15,7 +16,7 @@ function LiveCursorProvider({ children }: { children: React.ReactNode }) {
 	}
 
 	return (
-		<div onPointerMove={handlePointerMove} o nPointerLeave={handlePointerLeave}>
+		<div onPointerMove={handlePointerMove} onPointerLeave={handlePointerLeave}>
 			{/* Render Cursors */}
 			{others
 				.filter((other) => other.presence.cursor !== null)
@@ -27,7 +28,7 @@ function LiveCursorProvider({ children }: { children: React.ReactNode }) {
 						y={presence.cursor!.y}
 					/>
 				))}
-            {children}
+			{children}
 		</div>
 	);
 }
