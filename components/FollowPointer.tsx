@@ -1,5 +1,5 @@
 import React from "react";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import stringColor from "@/lib/stringToColor";
 function FollowPointer({
 	x,
@@ -18,7 +18,7 @@ function FollowPointer({
 	return (
 		<motion.div
 			className="h-4 w-4 rounded-full absolute z-50"
-			style={{ top: x, left: x, pointerEvents: "none" }}
+			style={{ top: y, left: x, pointerEvents: "none" }}
 			initial={{
 				scale: 1,
 				opacity: 1,

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { LiveblocksProvider } from "@liveblocks/react/suspense";
+import React from "react";
 
 function LiveBlocksProvider({ children }: { children: React.ReactNode }) {
 	if (!process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY) {
