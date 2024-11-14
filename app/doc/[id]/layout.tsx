@@ -1,14 +1,16 @@
 import RoomProvider from "@/components/RoomProvider";
 import { auth } from "@clerk/nextjs/server";
-import React from "react";
+import React, { use } from "react";
 
 function DocLayout({
 	children,
-	params: { id },
+	params,
 }: {
 	children: React.ReactNode;
-	params: { id: string };
+	params: Promise<{ id: string }>;
 }) {
+	auth();
+	const { id } = use(params);
 	return <RoomProvider roomId={id}>{children}</RoomProvider>;
 }
 
