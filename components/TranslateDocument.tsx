@@ -9,6 +9,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
+
 import {
 	Select,
 	SelectContent,
@@ -52,7 +53,6 @@ const languages: Language[] = [
 ];
 
 function TranslateDocument({ doc }: { doc: Y.Doc }) {
-	console.log("Document Data:", doc.get("document-store").toJSON());
 	const [isOpen, setIsOpen] = useState(false);
 	const [summary, setSummary] = useState("");
 	const [question, setQuestion] = useState("");
@@ -121,7 +121,41 @@ function TranslateDocument({ doc }: { doc: Y.Doc }) {
 					{question && <p className="mt-5 text-gray-500">Q: {question}</p>}
 				</DialogHeader>
 
-				{summary}
+				{(summary || isPending) && (
+					<div>
+						<div className="flex flex-col items-start max-h-96 overflow-y-scroll gap-2 p-5 bg-gray-100">
+							<div className="flex">
+								<BotIcon className="w-10 flex-shrink-0" />
+								<p className="font-bold">
+									GPT {isPending ? "is thinking..." : "Says:"}
+								</p>
+							</div>
+							{!isPending && <p className="text-gray-500"> {summary}</p>}
+						</div>
+
+						{/* Only show copy button when not pending and summary exists */}
+						{!isPending && summary && (
+							<Button
+								className="translate-y-1 justify-content-end"
+								onClick={copyToClipboard}
+								variant="secondary"
+								size="sm"
+							>
+								{clipboard ? (
+									<>
+										<ClipboardCheck className="h-4 w-4" />
+										Copied
+									</>
+								) : (
+									<>
+										<Clipboard className="h-4 w-4" />
+										Copy
+									</>
+								)}
+							</Button>
+						)}
+					</div>
+				)}
 
 				<form className="flex gap-2" onSubmit={handleAskQuestion}>
 					<Select
