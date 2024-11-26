@@ -7,14 +7,12 @@ import {
 	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
-	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
 function BreadCrumbs() {
 	const path = usePathname();
 	const segments = path.split("/");
 
-	console.log(segments);
 	return (
 		<Breadcrumb>
 			<BreadcrumbList>

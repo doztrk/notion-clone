@@ -49,8 +49,8 @@ function DeleteDocument() {
 					<DialogTitle>Are you absolutely sure?</DialogTitle>
 
 					<DialogDescription>
-						This will delete the document and all its' contents, removing all
-						users from the document.
+						This will delete the document and all its&apos contents, removing
+						all users from the document.
 					</DialogDescription>
 				</DialogHeader>
 

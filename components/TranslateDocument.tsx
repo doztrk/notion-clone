@@ -55,7 +55,6 @@ const languages: Language[] = [
 function TranslateDocument({ doc }: { doc: Y.Doc }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [summary, setSummary] = useState("");
-	const [question, setQuestion] = useState("");
 	const [language, setLanguage] = useState<string>("");
 	const [isPending, startTransition] = useTransition();
 	const [clipboard, setClipboard] = useState(false);
@@ -117,8 +116,6 @@ function TranslateDocument({ doc }: { doc: Y.Doc }) {
 					</DialogDescription>
 
 					<hr className="mt-5" />
-
-					{question && <p className="mt-5 text-gray-500">Q: {question}</p>}
 				</DialogHeader>
 
 				{(summary || isPending) && (

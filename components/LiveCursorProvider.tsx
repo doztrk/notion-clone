@@ -4,13 +4,14 @@ import React from "react";
 import FollowPointer from "./FollowPointer";
 
 function LiveCursorProvider({ children }: { children: React.ReactNode }) {
-	const [myPresence, updateMyPresence] = useMyPresence();
+	const [, updateMyPresence] = useMyPresence(); // Remove 'myPresence'
 	const others = useOthers();
 
 	function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
 		const cursor = { x: Math.floor(e.pageX), y: Math.floor(e.pageY) };
 		updateMyPresence({ cursor });
 	}
+
 	function handlePointerLeave() {
 		updateMyPresence({ cursor: null });
 	}

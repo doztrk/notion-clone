@@ -32,7 +32,6 @@ export async function createNewDocument() {
 export async function deleteDocument(roomId: string) {
 	auth();
 
-	console.log("deleteDocument", roomId);
 
 	try {
 		await adminDb.collection("documents").doc(roomId).delete();
@@ -56,7 +55,6 @@ export async function deleteDocument(roomId: string) {
 
 		return { success: true };
 	} catch (error) {
-		console.log(error);
 		return { success: false };
 	}
 }
@@ -64,7 +62,6 @@ export async function deleteDocument(roomId: string) {
 export async function inviteUserToDocument(roomId: string, email: string) {
 	auth();
 
-	console.log("inviteUserToDocument", roomId, email);
 
 	try {
 		await adminDb
@@ -80,7 +77,6 @@ export async function inviteUserToDocument(roomId: string, email: string) {
 			});
 		return { success: true };
 	} catch (error) {
-		console.log(error);
 		return { success: false };
 	}
 }
@@ -88,7 +84,6 @@ export async function inviteUserToDocument(roomId: string, email: string) {
 export async function removeUserFromDocument(roomId: string, email: string) {
 	auth();
 
-	console.log("removeUserFromDocument", roomId, email);
 
 	try {
 		await adminDb
@@ -99,7 +94,6 @@ export async function removeUserFromDocument(roomId: string, email: string) {
 			.delete();
 		return { success: true };
 	} catch (error) {
-		console.log(error);
 		return { success: false };
 	}
 }

@@ -1,24 +1,18 @@
 "use client";
 import {
 	Dialog,
-	DialogClose,
 	DialogContent,
 	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
 
-import React, { FormEvent, useState, useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { Button } from "./ui/button";
-import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Input } from "./ui/input";
-import {
-	inviteUserToDocument,
-	removeUserFromDocument,
-} from "@/actions/actions";
+
+import { removeUserFromDocument } from "@/actions/actions";
 import { useUser } from "@clerk/nextjs";
 import useOwner from "@/lib/useOwner";
 import { useRoom } from "@liveblocks/react/suspense";
@@ -78,8 +72,6 @@ function ManageUsers() {
 									? `You (${doc.data().userId})`
 									: doc.data().userId}
 							</p>
-
-							<div className="flex items-center gap-2"></div>
 
 							<div className="flex items-center gap-2">
 								<Button variant="outline">{doc.data().role}</Button>

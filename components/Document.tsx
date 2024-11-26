@@ -14,6 +14,7 @@ import Avatars from "./Avatars";
 function Document({ id }: { id: string }) {
 	const [input, setInput] = useState("");
 	const [isUpdating, startTransition] = useTransition();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [data, loading, error] = useDocumentData(doc(db, "documents", id));
 	const isOwner = useOwner();
 
@@ -46,10 +47,8 @@ function Document({ id }: { id: string }) {
 						{isUpdating ? "Updating..." : "Update"}
 					</Button>
 
-					{/* IF */}
 					{isOwner && (
 						<>
-							{/* Invite User */}
 							<InviteUser />
 
 							<DeleteDocument />
@@ -63,9 +62,9 @@ function Document({ id }: { id: string }) {
 
 				<Avatars />
 			</div>
-			{/* Collaborative Editor */}
-			<hr className="pb-10" />
 
+			<hr className="pb-10" />
+			{/* Collaborative Editor */}
 			<Editor />
 		</div>
 	);

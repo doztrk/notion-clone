@@ -13,7 +13,6 @@ function useOwner() {
 		user && query(collectionGroup(db, "rooms"), where("roomId", "==", room.id))
 	);
 
-	console.log(user?.emailAddresses[0].toString());
 	useEffect(() => {
 		if (usersInRoom?.docs && usersInRoom.docs.length > 0) {
 			const owners = usersInRoom.docs.filter(

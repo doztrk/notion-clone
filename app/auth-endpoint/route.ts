@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import { adminDb } from "@/firebase-admin";
 import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
@@ -27,7 +30,6 @@ export async function POST(req: NextRequest) {
 	if (userInRoom?.exists) {
 		session.allow(room, session.FULL_ACCESS);
 
-		console.log("You are authorized");
 		const { body, status } = await session.authorize();
 
 		return new Response(body, { status });
