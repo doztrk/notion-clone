@@ -60,7 +60,7 @@ function TranslateDocument({ doc }: { doc: Y.Doc }) {
 	const [isPending, startTransition] = useTransition();
 	const [clipboard, setClipboard] = useState(false);
 
-	const handleAskQuestion = async (e: FormEvent) => {
+	const handleTranslateDocument = async (e: FormEvent) => {
 		setClipboard(false);
 		e.preventDefault();
 
@@ -157,7 +157,7 @@ function TranslateDocument({ doc }: { doc: Y.Doc }) {
 					</div>
 				)}
 
-				<form className="flex gap-2" onSubmit={handleAskQuestion}>
+				<form className="flex gap-2" onSubmit={handleTranslateDocument}>
 					<Select
 						value={language}
 						onValueChange={(value) => setLanguage(value)}
